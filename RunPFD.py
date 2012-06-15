@@ -17,12 +17,11 @@ To document the program
 import sys
 import random
 from PFD import pfd_solve
-"""
+
 # input generator
-def genRandInput () :
+def genRandInput (size) :
     input_file = open("RunPFD.in", "w")
-    size = 50
-    s = "50 49"
+    s = str(size) + " " + str(size-1)
     b = []
     a = [0] * size
     for k in range(1, size + 1):
@@ -41,6 +40,5 @@ def genRandInput () :
     input_file.write(s)
     input_file.close()
 
-genRandInput()
-"""
+genRandInput(100)
 pfd_solve(sys.stdin, sys.stdout)
