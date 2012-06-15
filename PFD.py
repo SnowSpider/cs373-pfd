@@ -53,7 +53,8 @@ def pfd_read (r) :
         l = s.split()
         v[int(l[0])-1][0] = int(l[1]) #verts[l[0]].numPred = l[1]
         #verts[l[0]].preds = [0] * (len(l)-2) #I don't know whether this line is necessary
-        for j in range(2, len(l)):
+        lenl = len(l)
+        for j in range(2,lenl):
             v[int(l[j])-1][1].append(int(l[0]))
             #verts[l[j]-1].succ.append(l[0])         
         s = r.readline()
@@ -72,9 +73,9 @@ def pfd_eval (v) :
     
     hq = []
     heapq.heapify(hq)
-    
-    while len(a) != len(v):
-        for i in range (len(v)):
+    lenv = len(v)
+    while len(a) != lenv:
+        for i in range (lenv):
             if v[i][0] == 0:
                 if v[i][1] != []: 
                     for j in range (len(v[i][1])):
@@ -112,8 +113,8 @@ def pfd_print (w, v) :
         s.append(str(v[k]))
     w.write(' '.join(s))
     """
-    
-    w.write(' '.join([str(v[k]) for k in xrange(len(v))]))
+    lenv = len(v)
+    w.write(' '.join([str(v[k]) for k in xrange(lenv)]))
     
 # ---------
 # pfd_solve

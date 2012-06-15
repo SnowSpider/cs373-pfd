@@ -54,11 +54,11 @@ def pfd_read (r) :
         l = s.split()
         v[int(l[0])-1][0] = int(l[1]) #verts[l[0]].numPred = l[1]
         #verts[l[0]].preds = [0] * (len(l)-2) #I don't know whether this line is necessary
-        for j in range(2, len(l)):
+        lenl = len(l)
+        for j in range(2,lenl):
             v[int(l[j])-1][1].append(int(l[0]))
             #verts[l[j]-1].succ.append(l[0])         
         s = r.readline()
-    #print v
     return v
 
 # --------
@@ -74,22 +74,20 @@ def pfd_eval (v) :
     
     hq = []
     heapq.heapify(hq)
-    
-    while len(a) != len(v):
-        for i in range (len(v)):
+    lenv = len(v)
+    while len(a) != lenv:
+        for i in range (lenv):
             if v[i][0] == 0:
                 if v[i][1] != []: 
-                    for j in range (len(v[i][1])):
+                    lenvi1 = len(v[i][1])
+                    for j in range (lenvi1):
                         v[v[i][1][j] - 1][0] -= 1
-                    #print "gets here"
                     a.append(i+1)
                     v[i][0] = -1
                     break
                 else:
-                    #print "gets there"
                     a.append(i+1)
                     v[i][0] = -1
-    #print a     
     return a
 
 # ---------
@@ -100,7 +98,7 @@ def pfd_print (w, v) :
     """
     prints the values v
     w is a writer
-    v is the ordered list of 
+    v is the ordered list of vertices
     """
     """
     s = ""
@@ -110,8 +108,16 @@ def pfd_print (w, v) :
     s += str(v[numVert-1])
     w.write(s)
     """
-    w.write(' '.join([str(v[k]) for k in xrange(len(v))]))
-
+    
+    """
+    s = []
+    for k in xrange(len(v)):
+        s.append(str(v[k]))
+    w.write(' '.join(s))
+    """
+    lenv = len(v)
+    w.write(' '.join([str(v[k]) for k in xrange(lenv)]))
+    
 # ---------
 # pfd_solve
 # ---------
