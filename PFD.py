@@ -57,7 +57,6 @@ def pfd_read (r) :
             v[int(l[j])-1][1].append(int(l[0]))
             #verts[l[j]-1].succ.append(l[0])         
         s = r.readline()
-    #print v
     return v
 
 # --------
@@ -88,7 +87,6 @@ def pfd_eval (v) :
                     #print "gets there"
                     a.append(i+1)
                     v[i][0] = -1
-    #print a     
     return a
 
 # ---------

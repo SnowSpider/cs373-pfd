@@ -7,7 +7,7 @@ CS Username: wlee
 GitHub ID: SnowSpider
 GitHub Repository Name: cs373-pfd
 Estimated number of hours: 12
-Actual    number of hours: 
+Actual    number of hours: 4
 Comments: 
 
 I attest that I have written every line of code that I have submitted

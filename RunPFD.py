@@ -16,7 +16,31 @@ To document the program
 
 import sys
 import random
-
 from PFD import pfd_solve
+"""
+# input generator
+def genRandInput () :
+    input_file = open("RunPFD.in", "w")
+    size = 50
+    s = "50 49"
+    b = []
+    a = [0] * size
+    for k in range(1, size + 1):
+        a[k-1] = k
+    random.shuffle(a)
+    current = a.pop()
+    b.append(current)
+    while len(b) != size:
+        temp = ""
+        current = a.pop()
+        temp = str(current) + " " + str(len(b))
+        for i in b:
+            temp += " " + str(i)
+        s += "\n" + temp
+        b.append(current)
+    input_file.write(s)
+    input_file.close()
 
+genRandInput()
+"""
 pfd_solve(sys.stdin, sys.stdout)
