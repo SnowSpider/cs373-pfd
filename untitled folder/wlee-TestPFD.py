@@ -44,7 +44,6 @@ class TestPFD (unittest.TestCase) :
         r = StringIO.StringIO("5 1\n5 1 1")
         a = pfd_read(r)
         self.assert_(a == [[0, [5]], [0, []], [0, []], [0, []], [1, []]])
-    
     # ----
     # eval
     # ----
@@ -67,19 +66,16 @@ class TestPFD (unittest.TestCase) :
     def test_print_1 (self) :
         w = StringIO.StringIO()
         pfd_print(w, [1, 2, 3])
-        print w.getvalue()
         self.assert_(w.getvalue() == "1 2 3")
         
     def test_print_2 (self) :
         w = StringIO.StringIO()
         pfd_print(w,[4, 5, 6])
-        print w.getvalue()
         self.assert_(w.getvalue() == "4 5 6")
     
     def test_print_3 (self) :
         w = StringIO.StringIO()
         pfd_print(w, [7, 8, 9])
-        print w.getvalue()
         self.assert_(w.getvalue() == "7 8 9")
     
     # -----

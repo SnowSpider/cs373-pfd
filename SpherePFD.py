@@ -102,12 +102,15 @@ def pfd_print (w, v) :
     w is a writer
     v is the ordered list of 
     """
+    """
     s = ""
     for k in range(len(v)-1):
         s += str(v[k])
         s += " "
     s += str(v[numVert-1])
     w.write(s)
+    """
+    w.write(' '.join([str(v[k]) for k in xrange(len(v))]))
 
 # ---------
 # pfd_solve

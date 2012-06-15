@@ -79,12 +79,10 @@ def pfd_eval (v) :
                 if v[i][1] != []: 
                     for j in range (len(v[i][1])):
                         v[v[i][1][j] - 1][0] -= 1
-                    #print "gets here"
                     a.append(i+1)
                     v[i][0] = -1
                     break
                 else:
-                    #print "gets there"
                     a.append(i+1)
                     v[i][0] = -1
     return a
@@ -97,7 +95,8 @@ def pfd_print (w, v) :
     """
     prints the values v
     w is a writer
-    v is the ordered list of 
+    v is the ordered list of vertices
+    """
     """
     s = ""
     for k in range(len(v)-1):
@@ -105,7 +104,17 @@ def pfd_print (w, v) :
         s += " "
     s += str(v[numVert-1])
     w.write(s)
-
+    """
+    
+    """
+    s = []
+    for k in xrange(len(v)):
+        s.append(str(v[k]))
+    w.write(' '.join(s))
+    """
+    
+    w.write(' '.join([str(v[k]) for k in xrange(len(v))]))
+    
 # ---------
 # pfd_solve
 # ---------
